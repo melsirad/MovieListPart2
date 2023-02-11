@@ -2,7 +2,7 @@
 #CIS261
 #Movie Guide Part II
 
-FILENAME = "movies.txt"
+FILENAME = "Movies.txt"
 
 def write_movies(movies):
     with open(FILENAME, "w") as file:
@@ -28,7 +28,7 @@ def add_movie(movies):
     write_movies(movies)
     print(f"{movie} was added.\n")
 
-def  delete_movie(movies):
+def delete_movie(movies):
     index = int(input("Number:  "))
     if index < 1 or index > len(movies):
         print("Invalid movie number.\n")
@@ -52,16 +52,17 @@ def main():
     movies = read_movies()
     while True:
         command = input("Command:  ")
-
-    if command.lower() == "list":
-        list_movies(movies)
-    elif command.lower() == "del":
-        add_movie(movies)
-    elif command.lower() == "exit":
-        print("Bye!")
-        break
-    else:
-        print("Not a valid command. Please try again.")
+        if command.lower() == "list":
+            list_movies(movies)
+        elif command.lower() == "add":
+            add_movie(movies)
+        elif command.lower() == "del":
+            delete_movie(movies)
+        elif command.lower() == "exit":
+            print("Bye!")
+            break
+        else:
+            print("Not a valid command. Please try again.")
 
 
 if __name__ == "__main__":
